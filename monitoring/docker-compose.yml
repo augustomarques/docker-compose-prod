@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  prometheus:
+  prod-prometheus:
     container_name: prod-prometheus
     image: prom/prometheus:latest
     restart: unless-stopped
@@ -17,7 +17,7 @@ services:
     networks:
       - monitoring-network
 
-  grafana:
+  prod-grafana:
     container_name: prod-grafana
     image: grafana/grafana:latest
     restart: unless-stopped
@@ -31,7 +31,7 @@ services:
     networks:
       - monitoring-network
 
-  alertmanager: 
+  prod-alertmanager: 
     container_name: prod-alertmanager
     image: prom/alertmanager:latest
     restart: unless-stopped
@@ -46,7 +46,7 @@ services:
     networks:
       - monitoring-network
 
-  loki:
+  prod-loki:
     container_name: prod-loki
     image: grafana/loki:latest
     restart: unless-stopped
