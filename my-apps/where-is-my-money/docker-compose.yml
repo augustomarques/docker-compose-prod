@@ -20,6 +20,8 @@ services:
     image: augustomarques/where-is-my-money-frontend
     container_name: prod-where-is-my-money-frontend
     restart: unless-stopped
+    environment:
+      - ENV=production
     ports:
       - "10080:80"
     depends_on:
