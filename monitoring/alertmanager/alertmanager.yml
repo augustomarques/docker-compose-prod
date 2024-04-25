@@ -46,7 +46,7 @@ receivers:
        {{ end }}
      {{ end }}
 
-- name: 'ops-where-is-my-money-api'
+- name: 'ops-prod-where-is-my-money-api'
   slack_configs:
   - api_url: https://hooks.slack.com/services/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
     channel: '#prod-where-is-my-money-api'
