@@ -27,5 +27,5 @@ services:
 
 networks:
   where-is-my-money-network:
-    name: development
+    name: prod-development
     external: true

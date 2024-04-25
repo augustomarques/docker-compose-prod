@@ -8,7 +8,7 @@ services:
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus/alert.rules:/etc/prometheus/alert.rules
-      - prometheus-data:/prometheus
+      - prod-prometheus-data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--web.enable-lifecycle'
@@ -25,7 +25,7 @@ services:
       - "13000:3000"
     volumes:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources
-      - grafana-data:/var/lib/grafana
+      - prod-grafana-data:/var/lib/grafana
     depends_on:
       - prometheus
     networks:
@@ -39,7 +39,7 @@ services:
       - "19093:9093"
     volumes:
       - "./alertmanager:/config"
-      - alertmanager-data:/data
+      - prod-alertmanager-data:/data
     command: --config.file=/config/alertmanager.yml --log.level=debug 
     depends_on:
       - prometheus
@@ -61,11 +61,11 @@ services:
       - monitoring-network
 
 volumes:
-  prometheus-data:
-  grafana-data:
-  alertmanager-data:
+  prod-prometheus-data:
+  prod-grafana-data:
+  prod-alertmanager-data:
 
 networks:
   monitoring-network:
-    name: development
+    name: prod-development
     external: true
