@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+rule_files:
+  - alert.rules
+
+alerting:
+  alertmanagers:
+  - scheme: http
+    static_configs:
+    - targets:
+      - prod-alertmanager:19093
+
+scrape_configs:
+  - job_name: "prod-where-is-my-money-api"
+    metrics_path: /actuator/prometheus
+    static_configs:
+    - targets:
+      - "prod-where-is-my-money-api:18080"
