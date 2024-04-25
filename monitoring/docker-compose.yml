@@ -27,7 +27,7 @@ services:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources
       - prod-grafana-data:/var/lib/grafana
     depends_on:
-      - prometheus
+      - prod-prometheus
     networks:
       - monitoring-network
 
@@ -42,7 +42,7 @@ services:
       - prod-alertmanager-data:/data
     command: --config.file=/config/alertmanager.yml --log.level=debug 
     depends_on:
-      - prometheus
+      - prod-prometheus
     networks:
       - monitoring-network
 
@@ -56,7 +56,7 @@ services:
       - -config.file=/etc/loki/local-config.yaml
       - -print-config-stderr=true
     depends_on:
-      - grafana
+      - prod-grafana
     networks:
       - monitoring-network
 
