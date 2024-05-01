@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   prod-where-is-my-money-api:
-    image: augustomarques/where-is-my-money-api
+    image: augustomarques/where-is-my-money-api:latest
     container_name: prod-where-is-my-money-api
     restart: unless-stopped
     environment:
@@ -17,7 +17,7 @@ services:
       - prod-where-is-my-money-network
   
   prod-where-is-my-money-frontend:
-    image: augustomarques/where-is-my-money-frontend
+    image: augustomarques/where-is-my-money-frontend:latest
     container_name: prod-where-is-my-money-frontend
     restart: unless-stopped
     ports:
