@@ -21,7 +21,7 @@ services:
     container_name: prod-where-is-my-money-frontend
     restart: unless-stopped
     ports:
-      - "10080:80"
+      - "1080:80"
     depends_on:
       - prod-where-is-my-money-api
 
